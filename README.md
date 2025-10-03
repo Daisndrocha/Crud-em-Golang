@@ -1,4 +1,4 @@
-# 🚀 CRUD em Go (Golang)
+9# 🚀 CRUD em Go (Golang)
 
 Um projeto de **CRUD completo em Go**, construído com o framework **Gin** e o ORM **GORM**.  
 A ideia é apresentar de forma simples e prática como desenvolver uma API REST para criar, listar, atualizar e remover usuários.
@@ -28,7 +28,7 @@ A API estará disponível em:
 
 ---
 
-🌐 Endpoints
+#🌐 Endpoints
 
 POST /users → Criar usuário
 
@@ -44,7 +44,7 @@ DELETE /users/:id → Deletar usuário
 
 ---
 
-🛠 Tecnologias
+#🛠 Tecnologias
 
 Go (linguagem principal)
 
@@ -57,9 +57,9 @@ SQLite (banco simples para testes)
 
 
 ---
-✨ Sobre
+#✨ Sobre
 
 Este projeto foi desenvolvido como uma forma prática de estudar Go e explorar na prática conceitos de CRUD, APIs REST e persistência de dados.
 É um exercício de aprendizado aplicado, que pode servir de base para projetos maiores e mais completos.
 
- 💡 Feito com dedicação e café ☕
+ ##💡 Feito com dedicação e café ☕
