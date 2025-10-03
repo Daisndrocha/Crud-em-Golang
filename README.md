@@ -10,7 +10,7 @@ crud-golang/ │-- main.go │-- database/ │   └── database.go │-- mod
 
 ---
 
-## ⚙️ Como rodar o projeto
+#⚙️ Como rodar o projeto
 
 Clone o repositório e instale as dependências:
 ```bash
