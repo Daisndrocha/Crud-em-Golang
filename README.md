@@ -1,197 +1,65 @@
-# Crud-em-Golang
+# 🚀 CRUD em Go (Golang)
 
+Um projeto de **CRUD completo em Go**, construído com o framework **Gin** e o ORM **GORM**.  
+A ideia é apresentar de forma simples e prática como desenvolver uma API REST para criar, listar, atualizar e remover usuários.
 
-Navigation Menu
-meu-primeiro-crud-go
+---
+## 📂 Estrutura do Projeto
 
-Code
-Issues
-Pull requests
-Criando nosso primeiro projeto completo em Go no canal
+crud-golang/ │-- main.go │-- database/ │   └── database.go │-- models/ │   └── user.go │-- routes/ │   └── routes.go
 
- 80 stars
- 9 forks
- 4 watching
- 1 Branch
- 0 Tags
- Activity
- Custom properties
-Public repository
-HunCoding/meu-primeiro-crud-go
-Name	
+---
 
-HunnTeRUS
-2 years ago
-docs
-2 years ago
-src
-2 years ago
-.env
-3 years ago
-.gitignore
-3 years ago
-Dockerfile
-2 years ago
-README.md
-2 years ago
-crud_users.http
-2 years ago
-docker-compose.yml
-2 years ago
-go.mod
-2 years ago
-go.sum
-2 years ago
-Repository files navigation
-README
-MeuPrimeiroCRUD em Go
-This is a comprehensive guide for the "MeuPrimeiroCRUD em Go" project in Go, an example application that implements the basic CRUD (Create, Read, Update, Delete) operations for users. The project includes a Dockerfile to facilitate running it in containers.
+## ⚙️ Como rodar o projeto
 
-Information
-Title: MeuPrimeiroCRUD em Go | HunCoding
-Version: 1.0
-Host: localhost:8080
-Prerequisites
-Before getting started, make sure you have the following prerequisites installed on your system:
+Clone o repositório e instale as dependências:
+```bash
+git clone https://github.com/seu-usuario/crud-golang.git
+cd crud-golang
+go mod tidy
 
-Go: The Go programming language.
-Docker: Docker is required if you wish to run the application in a container.
-Installation
-Follow the steps below to install the project in your development environment:
-
-Clone the repository:
-
-git clone https://github.com/HunCoding/meu-primeiro-crud-go.git
-Navigate to the project directory:
-
-cd meu-primeiro-crud-go
-Build the application using Docker Compose:
-
-docker compose up
-Running the Application
-After installation, you can run the MeuPrimeiroCRUD em Go application with the following command (if you want to run it directly with Golang):
-
-docker container run --name meuprimeirocrudgo -p 27017:27017 -d mongo
+Inicie a aplicação:
 
 go run main.go
-The application will be accessible at http://localhost:8080.
 
-Testing the Application
-If you prefer, after running the project, visit: http://localhost:8080/swagger/index.html# to see and test all the route contracts.
+A API estará disponível em:
+👉 http://localhost:8080
 
-The MeuPrimeiroCRUD em Go application offers REST endpoints for creating, listing, updating, and deleting users. You can use tools like curl or Postman to test the endpoints. Here are some curl command examples for testing the endpoints:
 
-Create a user:
+---
 
-curl -X POST -H "Content-Type: application/json" -d '{"name": "João", "email": "joao@example.com", "age": 30, "password": "password$#@$#323"}' http://localhost:8080/createUser
-Update a user:
+🌐 Endpoints
 
-curl -X PUT -H "Content-Type: application/json" -d '{"name": "João Silva"}' http://localhost:8080/updateUser/{userId}
-Delete a user:
+POST /users → Criar usuário
 
-curl -X DELETE http://localhost:8080/deleteUser/{userID}
-Remember to adjust the commands according to your needs and requirements.
+GET /users → Listar usuários
 
-Data Models
-request.UserLogin
-Structure containing the necessary fields for user login.
+GET /users/:id → Buscar por ID
 
-email (string, required): The user's email (must be a valid email address).
-password (string, required): The user's password (must be at least 6 characters and contain at least one of the characters: !@#$%*).
-request.UserRequest
-Structure containing the required fields for creating a new user.
+PUT /users/:id → Atualizar usuário
 
-age (integer, required): The user's age (must be between 1 and 140).
-email (string, required): The user's email (must be a valid email address).
-name (string, required): The user's name (must be at least 4 characters and at most 100 characters).
-password (string, required): The user's password (must be at least 6 characters and contain at least one of the characters: !@#$%*).
-request.UserUpdateRequest
-Structure containing fields to update user information.
+DELETE /users/:id → Deletar usuário
 
-age (integer, required): The user's age (must be between 1 and 140).
-name (string, required): The user's name (must be at least 4 characters and at most 100 characters).
-response.UserResponse
-Response structure containing user information.
 
-age (integer): The user's age.
-email (string): The user's email.
-id (string): The user's unique ID.
-name (string): The user's name.
-rest_err.Causes
-Structure representing the causes of an error.
 
-field (string): The field associated with the error cause.
-message (string): Error message describing the cause.
-rest_err.RestErr
-Structure describing why an error occurred.
+---
 
-causes (array of rest_err.Causes): Error causes.
-code (integer): Error code.
-error (string): Error description.
-message (string): Error message.
-Endpoints
-Note
-For authentication, you should include the access token in the Authorization header as "Bearer " for protected endpoints.
-The API offers the following endpoints:
+🛠 Tecnologias
 
-POST /createUser
+Go (linguagem principal)
 
-Description: Create a new user with the provided user information.
-Parameters:
-userRequest (body, required): User information for registration.
-Responses:
-200: OK (User created successfully)
-400: Bad Request (Request error)
-500: Internal Server Error (Internal server error)
-DELETE /deleteUser/{userId}
+Gin (framework web)
 
-Description: Delete a user based on the provided ID parameter.
-Parameters:
-userId (path, required): ID of the user to be deleted.
-Responses:
-200: OK (User deleted successfully)
-400: Bad Request (Request error)
-500: Internal Server Error (Internal server error)
-GET /getUserByEmail/{userEmail}
+GORM (ORM para banco de dados)
 
-Description: Retrieve user details based on the email provided as a parameter.
-Parameters:
-userEmail (path, required): Email of the user to be retrieved.
-Responses:
-200: User information retrieved successfully
-400: Error: Invalid user ID
-404: User not found
-GET /getUserById/{userId}
+SQLite (banco simples para testes)
 
-#Description: Retrieve user details based on the user ID provided as a parameter.
-Parameters:
-userId (path, required): ID of the user to be retrieved.
-Responses:
-200: User information retrieved successfully
-400: Error: Invalid user ID
-404: User not found
-POST /login
 
-#Description: Allow a user to log in and receive an authentication token.
-Parameters:
-userLogin (body, required): User login credentials.
-Responses:
-200: Login successful, authentication token provided
-403: Error: Invalid login credentials
-PUT /updateUser/{userId}
 
-#Description: Update user details based on the ID provided as a parameter.
-Parameters:
-userId (path, required): ID of the user to be updated.
-userRequest (body, required): User information for update.
-Responses:
-200: OK (User updated successfully)
-400: Bad Request (Request error)
-500: Internal Server Error (Internal server error)
-Contributing
-If you wish to contribute to the MeuPrimeiroCRUD em Go project in Go, feel free to submit pull requests or report issues on the official repository.
+---
+✨ Sobre
 
-#License
-This project is distributed under the MIT license. Please refer to the LICENSE file for more details.
+Este projeto foi desenvolvido como uma forma prática de estudar Go e explorar na prática conceitos de CRUD, APIs REST e persistência de dados.
+É um exercício de aprendizado aplicado, que pode servir de base para projetos maiores e mais completos.
 
-We hope this Swagger documentation has been helpful in understanding and interacting with the API of the MeuPrimeiroCRUD em Go project in Go. If you have any questions or need additional support, please don't hesitate to reach out. Enjoy using the API!
+ 💡 Feito com dedicação e café ☕
