@@ -10,7 +10,7 @@ crud-golang/ │-- main.go │-- database/ │   └── database.go │-- mod
 
 ---
 
-##⚙️ Como rodar o projeto
+## ⚙️ Como rodar o projeto
 
 Clone o repositório e instale as dependências:
 ```bash
@@ -27,7 +27,7 @@ A API estará disponível em:
 ---
 
 
-##🌐 Endpoints
+## 🌐 Endpoints
 
 POST /users → Criar usuário
 
@@ -43,7 +43,7 @@ DELETE /users/:id → Deletar usuário
 
 ---
 
-##🛠 Tecnologias
+## 🛠 Tecnologias
 
 Go (linguagem principal)
 
@@ -56,10 +56,10 @@ SQLite (banco simples para testes)
 
 
 ---
-##✨ Sobre
+## ✨ Sobre
 
 Este projeto foi desenvolvido como uma forma prática de estudar Go e explorar na prática conceitos de CRUD, APIs REST e persistência de dados.
 É um exercício de aprendizado aplicado, que pode servir de base para projetos maiores e mais completos.
 
- ##💡 Feito com dedicação e café ☕
+ ## 💡 Feito com dedicação e café ☕
 
